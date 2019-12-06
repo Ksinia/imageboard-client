@@ -2,7 +2,8 @@ import request from "superagent";
 
 export const ALL_IMAGES = "ALL_IMAGES";
 
-const baseUrl = "http://localhost:4000";
+// const baseUrl = "http://localhost:4000";
+const baseUrl = "https://ksenia-imageboard.herokuapp.com";
 
 function allImages(payload) {
   return {
@@ -38,7 +39,6 @@ function newImage(payload) {
 export const createImage = data => (dispatch, getState) => {
   const state = getState();
   const { user } = state;
-  console.log(user);
 
   request
     .post(`${baseUrl}/image`)
