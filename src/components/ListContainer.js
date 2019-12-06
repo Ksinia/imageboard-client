@@ -9,12 +9,12 @@ class ListContainer extends React.Component {
   }
 
   render() {
-    return <List images={this.props.images} />;
+    return <List images={this.props.images} loggedin={this.props.loggedin} />;
   }
 }
 
 function mapStateToProps(state) {
-  return { images: state.images };
+  return { images: state.images, loggedin: Boolean(state.user) }; //do I have reasons to pass the whole token?
 }
 
 const mapDispatchToProps = { getImages };
