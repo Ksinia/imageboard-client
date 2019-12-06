@@ -1,0 +1,15 @@
+section {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+.images {
+  display: flex;
+  flex-flow: row wrap;
+}
+.image {
+  max-width: 28%;
+  margin: auto;
+}

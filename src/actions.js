@@ -42,7 +42,7 @@ export const createImage = data => (dispatch, getState) => {
 
   request
     .post(`${baseUrl}/image`)
-    .set("Authorization", `Bearer ${user.jwt}`)
+    .set("Authorization", `Bearer ${user}`)
     .send(data)
     .then(response => {
       const action = newImage(response.body);
@@ -66,9 +66,20 @@ export const login = (email, password) => dispatch => {
     .post(`${baseUrl}/login`)
     .send({ email, password })
     .then(response => {
-      const action = loginSuccess(response.body);
+      const action = loginSuccess(response.body.jwt);
 
       dispatch(action);
+    })
+    .catch(console.error);
+};
+
+export const signup = (email, password) => dispatch => {
+  request
+    .post(`${baseUrl}/user`)
+    .send({ email, password })
+    .then(response => {
+      console.log(response);
+      response.body.email && dispatch(login(email, password));
     })
     .catch(console.error);
 };

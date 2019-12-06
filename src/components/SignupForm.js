@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function LoginForm(props) {
+export default function SignupForm(props) {
   return (
-    <div id="login-form">
-      <h3>Log in</h3>
+    <div id="signup-form">
+      <h3>Sign up</h3>
       <form onSubmit={props.onSubmit}>
         <label htmlFor="email">Email: </label>
         <input
@@ -23,7 +23,7 @@ export default function LoginForm(props) {
           value={props.password}
           onChange={props.onChange}
         ></input>
-        <button type="submit">Log in</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );
